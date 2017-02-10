@@ -88,7 +88,7 @@ void generate_suffix_tree(char * T, node_tree * root, int * sa, int * lcp, int i
 		node_tree * f = crea_node(f, &T[sa[i]]);
 		add_node(root, f);	
 	}else{	
-		int min=lcp[i];
+		int min=lcp[i];		
 		int in=i+1;
 		int pos_min=i;
 		for(int k=in; k<j; k++){ 
@@ -117,11 +117,7 @@ void generate_suffix_tree(char * T, node_tree * root, int * sa, int * lcp, int i
 
 /* Determine whether a node is a leaf or not */
 boolean is_leaf(node_tree * node){
-	if (node->child == NULL){
-		return true;
-	}else {
-		return false;
-	}
+	return (node->child == NULL);
 }
 
 /* Recursively visit of the tree, printing on stdo the path label 
